@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel =
+            ViewModelProvider(this, MainViewModelFactory(application))[MainViewModel::class.java]
 
         binding.btnUp.setOnClickListener {
             viewModel.increaseNumber()

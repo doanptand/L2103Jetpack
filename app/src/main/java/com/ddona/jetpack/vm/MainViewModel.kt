@@ -1,16 +1,18 @@
 package com.ddona.jetpack.vm
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel() : ViewModel() {
+class MainViewModel(private val application: Application) : ViewModel() {
     private var _number = MutableLiveData<Int>()
     val number: LiveData<Int>
         get() = _number
 
     init {
+        Log.d("doanpt","application: $application")
         _number.postValue(0)
     }
 
