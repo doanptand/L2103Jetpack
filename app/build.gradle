@@ -56,6 +56,7 @@ dependencies {
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$arch_version"
 
+    implementation "androidx.fragment:fragment-ktx:1.4.0"
 
 
     testImplementation 'junit:junit:4.+'
