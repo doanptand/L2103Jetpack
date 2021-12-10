@@ -2,13 +2,16 @@ package com.ddona.jetpack
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.ddona.jetpack.databinding.ActivityMainBinding
 import com.ddona.jetpack.vm.MainViewModel
 import com.ddona.jetpack.vm.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels{
+        MainViewModelFactory(application)
+    }
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        viewModel =
-            ViewModelProvider(this, MainViewModelFactory(application))[MainViewModel::class.java]
+//        viewModel =
+//            ViewModelProvider(this, MainViewModelFactory(application))[MainViewModel::class.java]
 
         binding.btnUp.setOnClickListener {
             viewModel.increaseNumber()
