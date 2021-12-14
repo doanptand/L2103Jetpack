@@ -19,7 +19,8 @@ abstract class StudentDatabase : RoomDatabase() {
                 context,
                 StudentDatabase::class.java,
                 "student.db"
-            ).build()
+            ).fallbackToDestructiveMigration()
+                .build()
         }
     }
 }

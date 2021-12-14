@@ -9,22 +9,22 @@ import kotlinx.coroutines.flow.Flow
 interface StudentDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertStudent(student: Student)
+    suspend fun insertStudent(student: Student)
 
     @Update
-    fun updateStudent(student: Student)
+    suspend fun updateStudent(student: Student)
 
     @Delete
-    fun deleteStudent(student: Student)
+    suspend fun deleteStudent(student: Student)
 
     @Query("DELETE FROM student WHERE _id =:id")
-    fun deleteStudentById(id: Int)
+    suspend fun deleteStudentById(id: Int)
 
     @Query("DELETE FROM student")
-    fun deleteAllStudents()
+    suspend fun deleteAllStudents()
 
     @Query("SELECT * FROM student")
-    fun getAllStudents(): List<Student>
+    suspend fun getAllStudents(): List<Student>
 
     @Query("SELECT * FROM student")
     fun getAllStudentsWithLiveData(): LiveData<List<Student>>
