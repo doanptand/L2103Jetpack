@@ -1,5 +1,6 @@
 package com.ddona.jetpack
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -9,7 +10,7 @@ import com.ddona.jetpack.vm.MainViewModel
 import com.ddona.jetpack.vm.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by viewModels{
+    private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(application)
     }
 
@@ -28,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.number.observe(this, {
             binding.tvNumber.text = it.toString()
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.navigateToShare.observe(this, {
+            it.getContentIfNotHandled()?.let {
+                val intent = Intent(this, ShareDataActivity::class.java)
+                startActivity(intent)
+            }
         })
     }
 }
