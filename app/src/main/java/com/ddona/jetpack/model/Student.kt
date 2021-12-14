@@ -9,10 +9,10 @@ data class Student(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     var id: Int = 0,
-    @ColumnInfo(name ="_name")
+    @ColumnInfo(name = "_name")
     var name: String = "",
-    @ColumnInfo(name ="_age")
+    @ColumnInfo(name = "_age")
     var age: Int = 0,
-    @ColumnInfo(name ="_class_name")
+    @ColumnInfo(name = "_class_name")
     var className: String = "",
 )
