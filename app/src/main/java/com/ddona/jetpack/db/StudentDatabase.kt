@@ -12,15 +12,34 @@ abstract class StudentDatabase : RoomDatabase() {
     abstract fun getStudentDao(): StudentDao
 
     companion object {
+
         private var instance: StudentDatabase? = null
 
-        fun getInstance(context: Context): StudentDatabase = instance ?: synchronized(this) {
-            Room.databaseBuilder(
-                context,
-                StudentDatabase::class.java,
-                "student.db"
-            ).fallbackToDestructiveMigration()
-                .build()
+        @Synchronized
+        fun getInstance(context: Context): StudentDatabase {
+            if (instance == null) {
+                instance = Room.databaseBuilder(
+                    context,
+                    StudentDatabase::class.java,
+                    "student.db"
+                )
+                    .build()
+            }
+            return instance!!
         }
     }
+
+//    companion object {
+//        @Volatile
+//        private var instance: StudentDatabase? = null
+//
+//        fun getInstance(context: Context): StudentDatabase = instance ?: synchronized(this) {
+//            Room.databaseBuilder(
+//                context,
+//                StudentDatabase::class.java,
+//                "student.db"
+//            ).fallbackToDestructiveMigration()
+//                .build()
+//        }
+//    }
 }
