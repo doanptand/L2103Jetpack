@@ -37,24 +37,18 @@ class StudentActivity : AppCompatActivity() {
             val name = binding.edtName.text.toString()
             val age = binding.edtAge.text.toString()
             val className = binding.edtClassName.text.toString()
-            lifecycleScope.launch(Dispatchers.IO) {
-                viewModel.addStudent(Student(name = name, age = age.toInt(), className = className))
-            }
+            viewModel.addStudent(Student(name = name, age = age.toInt(), className = className))
         }
         binding.btnDel.setOnClickListener {
             val id = binding.edtId.text.toString()
-            lifecycleScope.launch(Dispatchers.IO) {
-                viewModel.deleteStudent(id.toInt())
-            }
+            viewModel.deleteStudent(id.toInt())
         }
         binding.btnEdit.setOnClickListener {
             val id = binding.edtId.text.toString()
             val name = binding.edtName.text.toString()
             val age = binding.edtAge.text.toString()
             val className = binding.edtClassName.text.toString()
-            lifecycleScope.launch(Dispatchers.IO) {
-                viewModel.updateStudent(Student(id.toInt(), name, age.toInt(), className))
-            }
+            viewModel.updateStudent(Student(id.toInt(), name, age.toInt(), className))
         }
     }
 }
