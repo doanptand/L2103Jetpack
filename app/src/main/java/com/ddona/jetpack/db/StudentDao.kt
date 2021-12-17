@@ -2,9 +2,7 @@ package com.ddona.jetpack.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.ddona.jetpack.model.SchoolAndDirector
-import com.ddona.jetpack.model.SchoolAndStudents
-import com.ddona.jetpack.model.Student
+import com.ddona.jetpack.model.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -19,7 +17,7 @@ interface StudentDao {
     @Delete
     suspend fun deleteStudent(student: Student)
 
-    @Query("DELETE FROM student WHERE _id =:id")
+    @Query("DELETE FROM student WHERE id =:id")
     suspend fun deleteStudentById(id: Int)
 
     @Query("DELETE FROM student")
@@ -41,4 +39,13 @@ interface StudentDao {
     @Transaction
     @Query("SELECT * FROM school WHERE schoolName= :schoolName")
     fun getSchoolAndStudents(schoolName: String): LiveData<List<SchoolAndStudents>>
+
+    @Transaction
+    @Query("SELECT * FROM subject WHERE subjectName= :subjectName")
+    fun getStudentsOfSubject(subjectName: String): List<SubjectWithStudents>
+
+    @Transaction
+    @Query("SELECT * FROM student WHERE id= :id")
+    fun getSubjectsOfStudent(id: Int): List<StudentWithSubjects>
+
 }
