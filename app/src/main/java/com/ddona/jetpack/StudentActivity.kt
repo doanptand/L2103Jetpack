@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.ddona.jetpack.adapter.StudentAdapter
+import com.ddona.jetpack.adapter.StudentListAdapter
 import com.ddona.jetpack.databinding.ActivityStudentBinding
 import com.ddona.jetpack.model.Student
 import com.ddona.jetpack.vm.StudentViewModel
@@ -14,7 +15,9 @@ import kotlinx.coroutines.launch
 
 class StudentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStudentBinding
-    private lateinit var adapter: StudentAdapter
+
+    //    private lateinit var adapter: StudentAdapter
+    private lateinit var adapter: StudentListAdapter
     private val viewModel: StudentViewModel by viewModels {
         StudentViewModelFactory(application)
     }
@@ -25,10 +28,11 @@ class StudentActivity : AppCompatActivity() {
         binding = ActivityStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = StudentAdapter()
+//        adapter = StudentAdapter()
+        adapter = StudentListAdapter()
         binding.rvStudent.adapter = adapter
         viewModel.students.observe(this, {
-            adapter.submit(it)
+            adapter.submitList(it)
         })
         binding.btnAdd.setOnClickListener {
             val name = binding.edtName.text.toString()
