@@ -15,4 +15,5 @@ data class Student(
     var age: Int = 0,
     @ColumnInfo(name = "_class_name")
     var className: String = "",
+    var schoolName: String = ""
 )
