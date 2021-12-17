@@ -2,6 +2,7 @@ package com.ddona.jetpack.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.ddona.jetpack.model.SchoolAndDirector
 import com.ddona.jetpack.model.Student
 import kotlinx.coroutines.flow.Flow
 
@@ -31,5 +32,8 @@ interface StudentDao {
 
     @Query("SELECT * FROM student")
     fun getAllStudentsWithFlow(): Flow<List<Student>>
+
+    @Query("SELECT * FROM school WHERE schoolName = :name")
+    fun getSchoolAndDirector(name: String): LiveData<List<SchoolAndDirector>>
 
 }
