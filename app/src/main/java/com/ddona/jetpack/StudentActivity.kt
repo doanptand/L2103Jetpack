@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 class StudentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStudentBinding
     private lateinit var adapter: StudentAdapter
-    private val students = arrayListOf<Student>()
     private val viewModel: StudentViewModel by viewModels {
         StudentViewModelFactory(application)
     }
@@ -26,12 +25,10 @@ class StudentActivity : AppCompatActivity() {
         binding = ActivityStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = StudentAdapter(students)
+        adapter = StudentAdapter()
         binding.rvStudent.adapter = adapter
         viewModel.students.observe(this, {
-            students.clear()
-            students.addAll(it)
-            adapter.notifyDataSetChanged()
+            adapter.submit(it)
         })
         binding.btnAdd.setOnClickListener {
             val name = binding.edtName.text.toString()
