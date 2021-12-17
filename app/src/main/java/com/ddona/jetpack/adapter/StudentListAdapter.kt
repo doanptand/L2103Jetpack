@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.ddona.jetpack.adapter.diff.StudentItemCallback
 import com.ddona.jetpack.databinding.ItemStudentBinding
 import com.ddona.jetpack.model.Student
@@ -34,7 +35,12 @@ class StudentListAdapter :
     class ViewHolder(private val binding: ItemStudentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(student: Student) {
-            binding.tvStudent.text = student.toString()
+//            binding.tvStudent.text = student.toString()
+            binding.s = student
+//            Glide.with(binding.root)
+//                .load(student.className)
+//                .into(binding.imgAvatar)
+            binding.executePendingBindings()
         }
     }
 }
