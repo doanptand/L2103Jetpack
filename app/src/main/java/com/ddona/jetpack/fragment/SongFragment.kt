@@ -9,11 +9,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.ddona.jetpack.databinding.FragmentSongBinding
+import com.ddona.jetpack.model.Student
 import com.ddona.jetpack.vm.MusicViewModel
 
 class SongFragment : Fragment() {
     private lateinit var binding: FragmentSongBinding
-//    private val viewModel: MusicViewModel by viewModels()
+
+    //    private val viewModel: MusicViewModel by viewModels()
     private val viewModel: MusicViewModel by activityViewModels()
 
     //    private lateinit var viewModel: MusicViewModel
@@ -25,13 +27,15 @@ class SongFragment : Fragment() {
         //activity
         //application context
         binding = FragmentSongBinding.inflate(inflater, container, false)
+        binding.vm = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 //        viewModel = ViewModelProvider(requireActivity())[MusicViewModel::class.java]
-        viewModel.number.observe(viewLifecycleOwner, {
-            binding.tvNumber.text = it.toString()
-        })
-        binding.btnUp.setOnClickListener {
-            viewModel.increaseNumber()
-        }
+//        viewModel.number.observe(viewLifecycleOwner, {
+//            binding.tvNumber.text = it.toString()
+//        })
+//        binding.btnUp.setOnClickListener {
+//            viewModel.increaseNumber()
+//        }
         return binding.root
     }
 }
