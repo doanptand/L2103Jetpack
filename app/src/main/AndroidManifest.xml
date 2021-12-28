@@ -16,15 +16,6 @@
         android:theme="@style/Theme.L2013Jetpack">
         <activity
             android:name=".NavigationActivity"
-            android:exported="true" />
-        <activity
-            android:name=".BindingActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".StudentActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".ShareDataActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BindingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShareDataActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
