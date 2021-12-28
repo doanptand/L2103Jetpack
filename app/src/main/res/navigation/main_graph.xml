@@ -43,5 +43,9 @@
         android:id="@+id/termsFragment"
         android:name="com.ddona.jetpack.fragment.TermsFragment"
         android:label="TermsFragment" />
+    <action
+        android:id="@+id/action_global_termsFragment"
+        app:destination="@id/termsFragment" />
+
 
 </navigation>

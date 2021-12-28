@@ -35,6 +35,10 @@ class NavigationActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.termAndCondition) {
+            navController.navigate(R.id.action_global_termsFragment)
+            return true
+        }
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
     }
