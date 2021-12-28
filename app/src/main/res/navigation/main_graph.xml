@@ -46,6 +46,10 @@
     <action
         android:id="@+id/action_global_termsFragment"
         app:destination="@id/termsFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ddona.jetpack.fragment.SearchFragment"
+        android:label="Search Fragment" />
 
 
 </navigation>
