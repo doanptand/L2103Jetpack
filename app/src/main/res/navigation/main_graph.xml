@@ -19,5 +19,20 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ddona.jetpack.fragment.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="Login Fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.ddona.jetpack.fragment.WelcomeFragment"
+        android:label="Welcome Fragment">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string"/>
+    </fragment>
 </navigation>
