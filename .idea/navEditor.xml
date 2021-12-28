@@ -50,6 +50,30 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="settingsFragment2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-949" />
+                            <option name="y" value="-453" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="termsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1247" />
+                            <option name="y" value="-455" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="welcomeFragment">
                     <value>
                       <LayoutPositions>

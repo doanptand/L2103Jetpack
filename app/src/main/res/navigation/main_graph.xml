@@ -33,6 +33,15 @@
             app:argType="string" />
         <argument
             android:name="password"
-            app:argType="string"/>
+            app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ddona.jetpack.fragment.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="com.ddona.jetpack.fragment.TermsFragment"
+        android:label="TermsFragment" />
+
 </navigation>

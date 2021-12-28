@@ -2,9 +2,12 @@ package com.ddona.jetpack
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.ddona.jetpack.databinding.ActivityNavigationBinding
 
@@ -24,6 +27,16 @@ class NavigationActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(navController)
+                || super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
