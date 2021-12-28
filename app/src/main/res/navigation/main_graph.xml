@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.ddona.jetpack.fragment.WelcomeFragment"
-        android:label="Welcome Fragment">
+        android:label="{username}">
         <argument
             android:name="username"
             app:argType="string" />
