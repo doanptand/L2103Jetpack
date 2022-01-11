@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityMainBinding
 import com.ddona.jetpack.vm.MainViewModel
 import com.ddona.jetpack.vm.MainViewModelFactory
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(application)
     }

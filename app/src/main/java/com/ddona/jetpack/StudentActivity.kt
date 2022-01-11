@@ -1,11 +1,9 @@
 package com.ddona.jetpack
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import com.ddona.jetpack.adapter.StudentAdapter
 import com.ddona.jetpack.adapter.StudentListAdapter
+import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityStudentBinding
 import com.ddona.jetpack.model.Student
 import com.ddona.jetpack.vm.StudentViewModel
@@ -13,7 +11,7 @@ import com.ddona.jetpack.vm.StudentViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class StudentActivity : AppCompatActivity() {
+class StudentActivity : BaseActivity() {
     private lateinit var binding: ActivityStudentBinding
 
     //    private lateinit var adapter: StudentAdapter

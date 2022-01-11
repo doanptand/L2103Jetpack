@@ -1,6 +1,5 @@
 package com.ddona.jetpack
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,9 +7,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityNavigationBinding
 
-class NavigationActivity : AppCompatActivity() {
+class NavigationActivity : BaseActivity() {
     private lateinit var binding: ActivityNavigationBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
