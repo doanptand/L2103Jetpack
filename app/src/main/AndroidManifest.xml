@@ -15,13 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.L2013Jetpack">
         <activity
-            android:name=".NavigationActivity"
+            android:name=".EmployeeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".NavigationActivity"
+            android:exported="true">
+
             <nav-graph android:value="@navigation/main_graph" />
         </activity>
         <activity
