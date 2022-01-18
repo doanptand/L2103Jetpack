@@ -1,8 +1,6 @@
 package com.ddona.jetpack.db
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ddona.jetpack.model.*
 
@@ -16,23 +14,23 @@ abstract class StudentDatabase : RoomDatabase() {
 
     abstract fun getStudentDao(): StudentDao
 
-    companion object {
-
-        private var instance: StudentDatabase? = null
-
-        @Synchronized
-        fun getInstance(context: Context): StudentDatabase {
-            if (instance == null) {
-                instance = Room.databaseBuilder(
-                    context,
-                    StudentDatabase::class.java,
-                    "student.db"
-                )
-                    .build()
-            }
-            return instance!!
-        }
-    }
+//    companion object {
+//
+//        private var instance: StudentDatabase? = null
+//
+//        @Synchronized
+//        fun getInstance(context: Context): StudentDatabase {
+//            if (instance == null) {
+//                instance = Room.databaseBuilder(
+//                    context,
+//                    StudentDatabase::class.java,
+//                    "student.db"
+//                )
+//                    .build()
+//            }
+//            return instance!!
+//        }
+//    }
 
 //    companion object {
 //        @Volatile

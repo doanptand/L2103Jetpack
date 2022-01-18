@@ -7,10 +7,7 @@ import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityStudentBinding
 import com.ddona.jetpack.model.Student
 import com.ddona.jetpack.vm.StudentViewModel
-import com.ddona.jetpack.vm.StudentViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class StudentActivity : BaseActivity() {
@@ -18,9 +15,7 @@ class StudentActivity : BaseActivity() {
 
     //    private lateinit var adapter: StudentAdapter
     private lateinit var adapter: StudentListAdapter
-    private val viewModel: StudentViewModel by viewModels {
-        StudentViewModelFactory(application)
-    }
+    private val viewModel: StudentViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

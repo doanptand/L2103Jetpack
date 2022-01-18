@@ -1,16 +1,17 @@
 package com.ddona.jetpack.vm
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ddona.jetpack.db.StudentDatabase
+import com.ddona.jetpack.db.StudentDao
 import com.ddona.jetpack.model.Student
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class StudentViewModel(application: Application) : ViewModel() {
+@HiltViewModel
+class StudentViewModel @Inject constructor(val studentDao: StudentDao) : ViewModel() {
 
-    private val studentDao = StudentDatabase.getInstance(application).getStudentDao()
     val students = studentDao.getAllStudentsWithLiveData()
 
     fun addStudent(student: Student) {
