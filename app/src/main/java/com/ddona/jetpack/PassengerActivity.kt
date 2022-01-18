@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddona.jetpack.adapter.PassengerAdapter
+import com.ddona.jetpack.adapter.PassengersLoadStateAdapter
 import com.ddona.jetpack.databinding.ActivityPassengerBinding
 import com.ddona.jetpack.vm.PassengerViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -19,7 +20,10 @@ class PassengerActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val adapter = PassengerAdapter()
-        binding.recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = PassengersLoadStateAdapter { adapter.retry() },
+            footer = PassengersLoadStateAdapter { adapter.retry() }
+        )
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
