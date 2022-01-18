@@ -24,6 +24,7 @@ class PassengerDataSource(
                 nextKey = if (nextPage < response.totalPages) nextPage + 1 else null
             )
         } catch (e: Exception) {
+            e.printStackTrace()
             LoadResult.Error(e)
         }
     }
