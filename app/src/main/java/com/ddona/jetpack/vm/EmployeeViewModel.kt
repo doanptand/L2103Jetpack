@@ -8,9 +8,12 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.ddona.jetpack.db.EmployeeDatabase
 import com.ddona.jetpack.model.Employee
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class EmployeeViewModel(
+@HiltViewModel
+class EmployeeViewModel @Inject constructor(
     private val app: Application
 ) : ViewModel() {
     private val employeeDao = EmployeeDatabase
