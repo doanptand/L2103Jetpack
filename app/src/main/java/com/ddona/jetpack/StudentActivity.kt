@@ -8,9 +8,11 @@ import com.ddona.jetpack.databinding.ActivityStudentBinding
 import com.ddona.jetpack.model.Student
 import com.ddona.jetpack.vm.StudentViewModel
 import com.ddona.jetpack.vm.StudentViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class StudentActivity : BaseActivity() {
     private lateinit var binding: ActivityStudentBinding
 

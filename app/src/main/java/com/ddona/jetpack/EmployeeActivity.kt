@@ -10,9 +10,11 @@ import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityEmployeeBinding
 import com.ddona.jetpack.vm.EmployeeViewModel
 import com.ddona.jetpack.vm.ViewModelProviderFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class EmployeeActivity : BaseActivity() {
 
     private val viewModel: EmployeeViewModel by viewModels {

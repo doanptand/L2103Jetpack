@@ -3,7 +3,9 @@ package com.ddona.jetpack
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ddona.jetpack.databinding.ActivityBindingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BindingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBindingBinding
     override fun onCreate(savedInstanceState: Bundle?) {

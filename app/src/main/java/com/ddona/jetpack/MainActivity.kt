@@ -11,9 +11,11 @@ import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityMainBinding
 import com.ddona.jetpack.vm.MainViewModel
 import com.ddona.jetpack.vm.MainViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(application)

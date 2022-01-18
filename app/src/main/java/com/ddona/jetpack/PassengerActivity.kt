@@ -9,9 +9,14 @@ import com.ddona.jetpack.adapter.PassengerAdapter
 import com.ddona.jetpack.adapter.PassengersLoadStateAdapter
 import com.ddona.jetpack.databinding.ActivityPassengerBinding
 import com.ddona.jetpack.vm.PassengerViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PassengerActivity : AppCompatActivity() {
+    @Inject
+    lateinit var adapter: PassengerAdapter
     private lateinit var binding: ActivityPassengerBinding
     private val viewModel: PassengerViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +24,6 @@ class PassengerActivity : AppCompatActivity() {
         binding = ActivityPassengerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = PassengerAdapter()
         binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
             header = PassengersLoadStateAdapter { adapter.retry() },
             footer = PassengersLoadStateAdapter { adapter.retry() }

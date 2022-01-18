@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityNavigationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NavigationActivity : BaseActivity() {
     private lateinit var binding: ActivityNavigationBinding
     private lateinit var navController: NavController

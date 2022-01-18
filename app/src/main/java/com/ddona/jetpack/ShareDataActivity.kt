@@ -5,7 +5,9 @@ import com.ddona.jetpack.adapter.MusicPagerAdapter
 import com.ddona.jetpack.base.BaseActivity
 import com.ddona.jetpack.databinding.ActivityShareDataBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShareDataActivity : BaseActivity() {
     private lateinit var binding: ActivityShareDataBinding
     override fun onCreate(savedInstanceState: Bundle?) {

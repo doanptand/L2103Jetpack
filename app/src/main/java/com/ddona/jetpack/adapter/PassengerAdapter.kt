@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ddona.jetpack.databinding.ItemPassengerBinding
 import com.ddona.jetpack.model.Passenger
+import javax.inject.Inject
 
-class PassengerAdapter :
+class PassengerAdapter @Inject constructor() :
     PagingDataAdapter<Passenger, PassengerAdapter.ViewHolder>(PassengerComparator) {
     object PassengerComparator : DiffUtil.ItemCallback<Passenger>() {
         override fun areItemsTheSame(oldItem: Passenger, newItem: Passenger): Boolean {
